@@ -1,4 +1,5 @@
 include("prime_factorization.jl")
+include("multiplicities.jl")
 using Multisets
 
 function num_divisors(n::Int)
@@ -23,6 +24,30 @@ function num_divisors(n::Int)
    primes = collect(keys(pf))        # keys(pf) gives the unique elements of the multiset pf
    M_p = collect(values(pf))         # values(pf) gives the multiplicities of these unique elements
    return prod( M_p .+1 )            # product((M_p+1))
+end
+
+
+
+
+function proper_divisors(n::Int)
+ # returns a list of proper divisors
+ # "proper divisors" of n: numbers <n which divide evenly into n.
+ # example: proper_divisors(360)
+ pf = Multiset(prime_factorization(n))
+ key = collect(keys(pf))     # unique prime factors
+ val = collect(values(pf))   # multiplicities
+ pf_mult = list_multiplicities(Tuple(val))
+ pd = []            # proper divisors
+ for i=1:length(pf_mult)
+  num = 1
+  for j=1:length(key)   
+   num *= key[j]^(pf_mult[i][j])
+  end
+  push!(pd, num)
+ end
+ pd = sort(pd)
+ dummy = pop!(pd)
+ return pd       # sorted list, remove the largest element(n)
 end
 
 

@@ -13,10 +13,6 @@ Find the sum of all the primes below two million.
 
 include("utils/prime_factorization.jl")
 
-function isprime(n)
-    return length(prime_factorization(n))==1
-end
-
 sum = 0
 
 for i=1:2000000-1

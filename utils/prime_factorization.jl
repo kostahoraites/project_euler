@@ -12,7 +12,7 @@ function prime_factorization(number)
       # find the smallest factor (it will necessarily be prime, otherwise the while loop would have exited  earlier)
       i+=1
    end
-   if number == 1
+   if number <= 1
       return []
    elseif number%i == 0
       # number is evenly divisible by a prime number (i)
@@ -24,4 +24,11 @@ function prime_factorization(number)
    end
 end
 
-#
+
+
+function isprime(n)
+    # Returns: boolean
+    # test for primality
+    return length(prime_factorization(n))==1
+end
+
