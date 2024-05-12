@@ -2,6 +2,7 @@ include("prime_factorization.jl")
 include("multiplicities.jl")
 using Multisets
 
+
 function num_divisors(n::Int)
    #=
     num_divisors(n) returns the number of unique divisors of the (positive) whole number n 
@@ -49,5 +50,8 @@ function proper_divisors(n::Int)
  dummy = pop!(pd)
  return pd       # sorted list, remove the largest element(n)
 end
+
+
+
 
 

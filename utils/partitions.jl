@@ -137,7 +137,7 @@ end
 
 #=knowing p(n) this way, it might be fun to also calculate all of the partitions explicitly for a given n.
 #probably easy enough to do this recursively. Consider the largest group in the subpartition, then loop through possibilities in remaining part.
- e.g. to find the partitions of 5:
+e.g. to find the partitions of 5:
  5 = 5
  5 = 4+1
  5 = 3+2
@@ -145,6 +145,9 @@ end
  5 = 2+2+1
  5 = 2+1+1+1
  5 = 1+1+1+1+1
+#Note: if I write this in a more general way, where each of the terms in the sum comes from a specified list, then can be used to solve a more general class of problems
+#such as: how many ways can you make $1 out of quarters, dimes, nickels, and pennies?
+#how many ways can you partition whole number N into primes? (see Project Euler problem 77)
 =#
 
 

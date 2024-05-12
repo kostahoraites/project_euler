@@ -8,7 +8,7 @@ The cube, 41063625 (3453), can be permuted to produce two other cubes: 56623104 
 Find the smallest cube for which exactly five permutations of its digits are cube.
 =#
 
-include("utils/is_power.jl")   # is_nth_power(int, n)
+include("utils/is.jl")   # is_nth_power(int, n)
 include("utils/permutations.jl")
 
 

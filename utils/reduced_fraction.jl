@@ -1,8 +1,10 @@
 include("prime_factorization.jl")
+include("common_factors.jl")
 using Multisets
 
+#=  OLD IMPLEMENTATION
 function reduced_fraction(num,denom)
- #returns the numerator and denominat
+ #returns the numerator and denominator of reduced fraction
  # n, d = reduced_fraction(6,15)  # n=2, d = 5. because 6/15 = 2/5
  num_ms = Multiset(prime_factorization(num))
  denom_ms = Multiset(prime_factorization(denom))
@@ -12,6 +14,19 @@ function reduced_fraction(num,denom)
  prod(collect(num_red_ms))
  return prod(collect(num_red_ms)),  prod(collect(denom_red_ms))
 end
+=#
+
+
+function reduced_fraction(num, denom)
+ # NEW IMPLEMENTATION
+ factor = gcf(num, denom)
+ if factor == 1
+  return num, denom
+ else
+  return reduced_fraction(num÷factor, denom÷factor)  # recursion
+ end
+end
+
 
 
 function is_reduced(num, denom)
